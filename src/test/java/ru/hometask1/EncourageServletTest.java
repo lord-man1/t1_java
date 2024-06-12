@@ -1,11 +1,13 @@
 package ru.hometask1;
 
+import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.io.*;
+import java.lang.reflect.InvocationTargetException;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.*;
@@ -18,7 +20,7 @@ public class EncourageServletTest {
     private EncourageServiceImpl service;
 
     @BeforeEach
-    void setUp() throws IOException {
+    void setUp() throws IOException, ServletException, InvocationTargetException, IllegalAccessException {
         request = mock(HttpServletRequest.class);
         response = mock(HttpServletResponse.class);
         service = mock(EncourageServiceImpl.class);

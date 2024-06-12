@@ -3,8 +3,8 @@ package ru.hometask1;
 public class EncourageServiceImpl implements EncourageService {
     private final EncourageRepository repository;
 
-    public EncourageServiceImpl() {
-        this.repository = new InMemoryEncourageRepository();
+    public EncourageServiceImpl(EncourageRepository repository) {
+        this.repository = repository;
     }
 
     @Override

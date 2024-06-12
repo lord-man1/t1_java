@@ -1,25 +1,27 @@
 package ru.hometask1;
 
 import java.io.*;
+import java.lang.reflect.InvocationTargetException;
 
-import jakarta.servlet.ServletConfig;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.*;
 
 public class EncourageServlet extends HttpServlet {
+    private final ApplicationContext ctx = new ApplicationContext();
     private EncourageServiceImpl service;
 
-    public EncourageServlet() {
+    public EncourageServlet() throws ServletException, InvocationTargetException, IllegalAccessException {
+        init();
     }
 
-    public EncourageServlet(EncourageServiceImpl service) {
+    public EncourageServlet(EncourageServiceImpl service) throws InvocationTargetException, IllegalAccessException {
         this.service = service;
     }
 
     @Override
-    public void init(ServletConfig config) throws ServletException {
-        super.init(config);
-        this.service = new EncourageServiceImpl();
+    public void init() throws ServletException {
+        super.init();
+        this.service = ctx.getInstance(EncourageServiceImpl.class);
     }
 
     @Override
