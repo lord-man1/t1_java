@@ -1,6 +1,5 @@
-package ru.hometask1;
+package ru.hometask1.repository;
 
-import java.util.HashMap;
 import java.util.Map;
 import java.util.UUID;
 import java.util.concurrent.ConcurrentHashMap;

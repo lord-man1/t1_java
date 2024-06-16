@@ -1,4 +1,4 @@
-package ru.hometask1.config;
+package ru.hometask1.annotation;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
@@ -7,5 +7,6 @@ import java.lang.annotation.Target;
 
 @Target(ElementType.METHOD)
 @Retention(RetentionPolicy.RUNTIME)
-public @interface Instance {
+public @interface PostMapping {
+    String value() default "";
 }

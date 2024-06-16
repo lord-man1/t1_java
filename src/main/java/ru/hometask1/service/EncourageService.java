@@ -1,4 +1,4 @@
-package ru.hometask1;
+package ru.hometask1.service;
 
 public interface EncourageService {
     String getRandomPhrase();

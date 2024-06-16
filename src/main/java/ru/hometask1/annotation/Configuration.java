@@ -1,4 +1,4 @@
-package ru.hometask1.config;
+package ru.hometask1.annotation;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
