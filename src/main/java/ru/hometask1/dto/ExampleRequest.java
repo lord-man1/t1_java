@@ -1,4 +1,8 @@
 package ru.hometask1.dto;
 
-public record ExampleRequest(String phrase) {
+import jakarta.validation.constraints.NotBlank;
+import lombok.Builder;
+
+@Builder
+public record ExampleRequest(@NotBlank String phrase) {
 }
