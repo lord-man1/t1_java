@@ -2,6 +2,8 @@ package ru.hometask1.controller;
 
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
+import lombok.SneakyThrows;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -14,21 +16,22 @@ import ru.Publisher;
 @RestController
 @RequiredArgsConstructor
 public class EncourageController {
+    @Value("${spring.application.greeting-message}")
+    private String greetingMessage;
     private final EncourageService encourageService;
-    private final Publisher<String> publisher;
 
     @GetMapping("/hello")
     public ExampleResponse hello() {
-        return new ExampleResponse("Hello, World!");
+        return new ExampleResponse(greetingMessage);
     }
 
     @GetMapping("/encourage-servlet")
     public ExampleResponse exampleGet() {
-        return new ExampleResponse(encourageService.findRandomPhrase());
+        return encourageService.findRandomPhrase();
     }
 
     @PostMapping("/encourage-servlet")
     public void examplePost(@Valid @RequestBody ExampleRequest request) {
-        publisher.publish(request.phrase());
+        encourageService.addPhrase(request);
     }
 }

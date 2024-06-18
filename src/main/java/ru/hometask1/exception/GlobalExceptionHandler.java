@@ -18,4 +18,12 @@ public class GlobalExceptionHandler {
         log.error(message, ex);
         return ProblemDetail.forStatusAndDetail(HttpStatus.BAD_REQUEST, message);
     }
+
+    @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
+    @ExceptionHandler(JsonParsingException.class)
+    public ProblemDetail handleJsonParsingException(JsonParsingException ex) {
+        var message = ex.getMessage();
+        log.error(message, ex);
+        return ProblemDetail.forStatusAndDetail(HttpStatus.INTERNAL_SERVER_ERROR, message);
+    }
 }

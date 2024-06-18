@@ -1,9 +1,10 @@
 package ru.hometask1.repository;
 
-import ru.Repository;
+import ru.hometask1.dto.ExampleRequest;
+import ru.hometask1.dto.ExampleResponse;
 
-public interface EncourageRepository extends Repository<String> {
-    String getRandomPhrase();
+public interface EncourageRepository {
+    ExampleResponse getRandomPhrase();
 
-    void addPhrase(String phrase);
+    void addPhrase(ExampleRequest phrase);
 }

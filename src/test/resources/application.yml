@@ -1,0 +1,5 @@
+spring:
+  application:
+    messaging:
+      enabled: true
+    greeting-message: TEST_GREETING

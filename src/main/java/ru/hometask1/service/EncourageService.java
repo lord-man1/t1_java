@@ -1,7 +1,10 @@
 package ru.hometask1.service;
 
-public interface EncourageService {
-    String findRandomPhrase();
+import ru.hometask1.dto.ExampleRequest;
+import ru.hometask1.dto.ExampleResponse;
 
-    void addPhrase(String phrase);
+public interface EncourageService {
+    ExampleResponse findRandomPhrase();
+
+    void addPhrase(ExampleRequest phrase);
 }

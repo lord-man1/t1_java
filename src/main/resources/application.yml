@@ -1,3 +1,6 @@
 spring:
   application:
+    greeting-message: Hello, World!
+    messaging:
+      enabled: false
     name: encourage-service
